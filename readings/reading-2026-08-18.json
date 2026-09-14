@@ -1,0 +1,61 @@
+{
+  "reading_at": "2026-08-18T19:05:47Z",
+  "active_quests": 44,
+  "capability_gated": 20,
+  "generator_truth": {
+    "video_generation": "DEAD",
+    "music_generation": "ALIVE",
+    "image_generation": "ALIVE"
+  },
+  "uncompletable_count": 8,
+  "uncompletable": [
+    [
+      "video_generation",
+      "City Life, One Take",
+      "9f72b80f",
+      "2026-08-18T21:20"
+    ],
+    [
+      "video_generation",
+      "First Screening",
+      "472176aa",
+      "2026-08-18T21:20"
+    ],
+    [
+      "video_generation",
+      "Genre Transplant",
+      "f31d6edb",
+      "2026-08-18T21:20"
+    ],
+    [
+      "video_generation",
+      "A Film for Someone",
+      "ad706534",
+      "2026-08-18T21:20"
+    ],
+    [
+      "video_generation",
+      "The Dream Reel",
+      "ecaad6ac",
+      "2026-08-18T21:20"
+    ],
+    [
+      "video_generation",
+      "The Series \u2014 Step 2: The Complication",
+      "8a6db984",
+      "None"
+    ],
+    [
+      "video_generation",
+      "The Series \u2014 Step 3: The Finale",
+      "10af3cb5",
+      "None"
+    ],
+    [
+      "video_generation",
+      "The Series \u2014 Step 1: The Pilot",
+      "abd378cd",
+      "None"
+    ]
+  ]
+}

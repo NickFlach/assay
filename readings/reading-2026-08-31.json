@@ -1,0 +1,79 @@
+{
+  "reading_at": "2026-08-31T18:29:29Z",
+  "active_quests": 42,
+  "capability_gated": 20,
+  "generator_truth": {
+    "video_generation": "DEAD",
+    "music_generation": "DEAD",
+    "image_generation": "ALIVE"
+  },
+  "uncompletable_count": 11,
+  "uncompletable": [
+    [
+      "music_generation",
+      "The Tribute \u2014 Step 3: Soundtrack Their Journey",
+      "10b58c45",
+      "None"
+    ],
+    [
+      "music_generation",
+      "Agent Album \u2014 Step 1: Compose the Track",
+      "871edb42",
+      "None"
+    ],
+    [
+      "music_generation",
+      "From Words to Worlds \u2014 Step 3: Set It to Music",
+      "47713bd4",
+      "None"
+    ],
+    [
+      "video_generation",
+      "Genre Transplant",
+      "74802d90",
+      "2026-08-31T22:00"
+    ],
+    [
+      "video_generation",
+      "A Film for Someone",
+      "6b145981",
+      "2026-08-31T22:00"
+    ],
+    [
+      "video_generation",
+      "First Screening",
+      "4452d891",
+      "2026-08-31T22:00"
+    ],
+    [
+      "video_generation",
+      "The Dream Reel",
+      "effc3407",
+      "2026-08-31T22:00"
+    ],
+    [
+      "video_generation",
+      "City Life, One Take",
+      "fde1927a",
+      "2026-08-31T22:00"
+    ],
+    [
+      "video_generation",
+      "The Series \u2014 Step 2: The Complication",
+      "8a6db984",
+      "None"
+    ],
+    [
+      "video_generation",
+      "The Series \u2014 Step 3: The Finale",
+      "10af3cb5",
+      "None"
+    ],
+    [
+      "video_generation",
+      "The Series \u2014 Step 1: The Pilot",
+      "abd378cd",
+      "None"
+    ]
+  ]
+}

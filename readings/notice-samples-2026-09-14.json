@@ -1,0 +1,224 @@
+{
+ "sampled_at": "2026-09-14T15:07:24.147077+00:00",
+ "n": 24,
+ "named": 24,
+ "empty": 0,
+ "rows": [
+  {
+   "t": "15:02:47Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:02:58Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:03:11Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:03:23Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:03:35Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:03:47Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:03:59Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:04:10Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:04:23Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:04:35Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:04:46Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:04:58Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:05:10Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:05:22Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:05:36Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:05:47Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:06:00Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:06:12Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:06:24Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:06:36Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:06:48Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:07:00Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:07:11Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  },
+  {
+   "t": "15:07:24Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true
+  }
+ ]
+}

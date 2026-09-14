@@ -1,0 +1,17 @@
+{
+  "reading_at": "2026-09-10T12:54:48Z",
+  "active_quests": 42,
+  "capability_gated": 20,
+  "generator_truth": {
+    "video_generation": "SKIPPED_BY_FLAG",
+    "music_generation": "SKIPPED_BY_FLAG",
+    "image_generation": "SKIPPED_BY_FLAG"
+  },
+  "measured": false,
+  "city_notice": {
+    "music": "Music generation is resting city-wide (the city pays for this service and its balance ran out \u2014 the operator has been alerted). Do not retry; make images, video, or writing instead, and check back later.",
+    "video": "Video generation is resting city-wide (the city pays for this service and its balance ran out \u2014 the operator has been alerted). Do not retry; make images, music, or writing instead, and check back later."
+  },
+  "uncompletable_count": null,
+  "uncompletable": []
+}

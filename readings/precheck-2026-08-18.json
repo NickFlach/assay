@@ -1,0 +1,153 @@
+{
+  "run_at": "2026-08-18",
+  "mode": "flag",
+  "would_block": 7,
+  "tally": {
+    "OVERDUE_UNSETTLED": 7,
+    "IMPOSSIBLE": 1,
+    "UNPARSED": 6,
+    "UNMEASURABLE": 6
+  },
+  "rows": [
+    {
+      "verdict": "OVERDUE_UNSETTLED",
+      "number": 1,
+      "statement": "By the next Lab Note (2026-07-19), at least one district buildin",
+      "detail": "settles_by 2026-07-19 passed (filed 2026-07-12, today 2026-08-18) and no outcome is recorded \u2014 backlog, not a proposal defect",
+      "source": "Lab Note No 1 (OBC artifact 58dacb59-e0cf-4745-84a3-f03494e00a2e), Kannaka Labs, Tech Hub"
+    },
+    {
+      "verdict": "OVERDUE_UNSETTLED",
+      "number": 2,
+      "statement": "By Lab Note No 3 (2026-07-26), at least one district building in",
+      "detail": "settles_by 2026-07-26 passed (filed 2026-07-15, today 2026-08-18) and no outcome is recorded \u2014 backlog, not a proposal defect",
+      "source": "Lab Note No 2 (OBC artifact 5089de2c-09ac-4972-8fa2-bccab0f9f9ff), Kannaka Labs, Tech Hub"
+    },
+    {
+      "verdict": "IMPOSSIBLE",
+      "number": 3,
+      "statement": "OpenBotCity Market District (zone 2) reaches 15 or more claimed ",
+      "detail": "target 15 exceeds zone 2 capacity: 12 plots exist (4 claimed)",
+      "source": "obc-dm"
+    },
+    {
+      "verdict": "OVERDUE_UNSETTLED",
+      "number": 4,
+      "statement": "by 2026-07-17 Someone other than Kannaka or Flaukowski will crea",
+      "detail": "settles_by 2026-07-17 passed (filed 2026-07-17, today 2026-08-18) and no outcome is recorded \u2014 backlog, not a proposal defect",
+      "source": null
+    },
+    {
+      "verdict": "UNPARSED",
+      "number": 5,
+      "statement": "Deploy smoke test \u2014 channel door live",
+      "detail": "no machine-measurable spec recognised",
+      "source": "mcp-propose"
+    },
+    {
+      "verdict": "UNMEASURABLE",
+      "number": 6,
+      "statement": "Zone 1 reaches at least 1 claimed plots",
+      "detail": "OBC zone 1 has 0 plots; the spec has nothing to read, ever; ALSO overdue since 2026-08-16 with no outcome",
+      "source": "obc-dm"
+    },
+    {
+      "verdict": "UNPARSED",
+      "number": 7,
+      "statement": "Kannaka phi exceeds 0.45 by 2026-08-18",
+      "detail": "no machine-measurable spec recognised",
+      "source": "nats-propose"
+    },
+    {
+      "verdict": "OVERDUE_UNSETTLED",
+      "number": 8,
+      "statement": "Kannaka phi exceeds 0.36 by 2026-08-15",
+      "detail": "settles_by 2026-08-15 passed (filed 2026-08-13, today 2026-08-18) and no outcome is recorded \u2014 backlog, not a proposal defect",
+      "source": "nats-propose"
+    },
+    {
+      "verdict": "OVERDUE_UNSETTLED",
+      "number": 9,
+      "statement": "Kannaka phi exceeds 0.35 by 2026-08-15",
+      "detail": "settles_by 2026-08-15 passed (filed 2026-08-13, today 2026-08-18) and no outcome is recorded \u2014 backlog, not a proposal defect",
+      "source": "nats-propose"
+    },
+    {
+      "verdict": "UNMEASURABLE",
+      "number": 10,
+      "statement": "Zone 1 reaches at least 1 claimed plots",
+      "detail": "OBC zone 1 has 0 plots; the spec has nothing to read, ever; ALSO overdue since 2026-08-15 with no outcome",
+      "source": "obc-dm"
+    },
+    {
+      "verdict": "OVERDUE_UNSETTLED",
+      "number": 11,
+      "statement": "Kannaka phi exceeds 0.35 by 2026-08-16",
+      "detail": "settles_by 2026-08-16 passed (filed 2026-08-14, today 2026-08-18) and no outcome is recorded \u2014 backlog, not a proposal defect",
+      "source": "nats-propose"
+    },
+    {
+      "verdict": "OVERDUE_UNSETTLED",
+      "number": 12,
+      "statement": "Kannaka phi exceeds 0.51 by 2026-08-17",
+      "detail": "settles_by 2026-08-17 passed (filed 2026-08-15, today 2026-08-18) and no outcome is recorded \u2014 backlog, not a proposal defect",
+      "source": "nats-propose"
+    },
+    {
+      "verdict": "UNMEASURABLE",
+      "number": 13,
+      "statement": "Zone 1 reaches at least 1 claimed plots",
+      "detail": "OBC zone 1 has 0 plots; the spec has nothing to read, ever; ALSO overdue since 2026-08-17 with no outcome",
+      "source": "obc-dm"
+    },
+    {
+      "verdict": "UNPARSED",
+      "number": 14,
+      "statement": "Kannaka phi exceeds 0.38 by 2026-08-18",
+      "detail": "no machine-measurable spec recognised",
+      "source": "nats-propose"
+    },
+    {
+      "verdict": "UNMEASURABLE",
+      "number": 15,
+      "statement": "Zone 1 reaches at least 1 claimed plots",
+      "detail": "OBC zone 1 has 0 plots; the spec has nothing to read, ever",
+      "source": "obc-dm"
+    },
+    {
+      "verdict": "UNPARSED",
+      "number": 16,
+      "statement": "Kannaka phi exceeds 0.38 by 2026-08-19",
+      "detail": "no machine-measurable spec recognised",
+      "source": "nats-propose"
+    },
+    {
+      "verdict": "UNMEASURABLE",
+      "number": 17,
+      "statement": "Zone 1 reaches at least 1 claimed plots",
+      "detail": "OBC zone 1 has 0 plots; the spec has nothing to read, ever",
+      "source": "obc-dm"
+    },
+    {
+      "verdict": "UNPARSED",
+      "number": 18,
+      "statement": "Kannaka phi exceeds 0.35 by 2026-08-20",
+      "detail": "no machine-measurable spec recognised",
+      "source": "nats-propose"
+    },
+    {
+      "verdict": "UNMEASURABLE",
+      "number": 19,
+      "statement": "Zone 1 reaches at least 1 claimed plots",
+      "detail": "OBC zone 1 has 0 plots; the spec has nothing to read, ever",
+      "source": "obc-dm"
+    },
+    {
+      "verdict": "UNPARSED",
+      "number": 20,
+      "statement": "By 2026-08-25 the OBC Capability Truth Probe finds at most 1 act",
+      "detail": "no machine-measurable spec recognised",
+      "source": "mcp-propose"
+    }
+  ]
+}

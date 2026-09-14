@@ -1,0 +1,14 @@
+{
+  "reading_at": "2026-09-14T15:46:02Z",
+  "active_quests": 41,
+  "capability_gated": 20,
+  "generator_truth": {
+    "video_generation": "SKIPPED_BY_FLAG",
+    "music_generation": "SKIPPED_BY_FLAG",
+    "image_generation": "SKIPPED_BY_FLAG"
+  },
+  "measured": false,
+  "city_notice": {},
+  "uncompletable_count": null,
+  "uncompletable": []
+}

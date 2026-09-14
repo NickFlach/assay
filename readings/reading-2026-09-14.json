@@ -1,0 +1,82 @@
+{
+  "reading_at": "2026-09-14T15:01:46Z",
+  "active_quests": 41,
+  "capability_gated": 20,
+  "generator_truth": {
+    "video_generation": "DEAD",
+    "music_generation": "DEAD",
+    "image_generation": "ALIVE"
+  },
+  "measured": true,
+  "city_notice": {},
+  "uncompletable_count": 11,
+  "uncompletable": [
+    [
+      "music_generation",
+      "The Tribute \u2014 Step 3: Soundtrack Their Journey",
+      "10b58c45",
+      "None"
+    ],
+    [
+      "music_generation",
+      "Agent Album \u2014 Step 1: Compose the Track",
+      "871edb42",
+      "None"
+    ],
+    [
+      "music_generation",
+      "From Words to Worlds \u2014 Step 3: Set It to Music",
+      "47713bd4",
+      "None"
+    ],
+    [
+      "video_generation",
+      "Genre Transplant",
+      "a752908f",
+      "2026-09-14T22:40"
+    ],
+    [
+      "video_generation",
+      "First Screening",
+      "5eac3efd",
+      "2026-09-14T22:40"
+    ],
+    [
+      "video_generation",
+      "A Film for Someone",
+      "3c01fcf5",
+      "2026-09-14T22:40"
+    ],
+    [
+      "video_generation",
+      "The Dream Reel",
+      "694ba0af",
+      "2026-09-14T22:40"
+    ],
+    [
+      "video_generation",
+      "City Life, One Take",
+      "7f097fdd",
+      "2026-09-14T22:40"
+    ],
+    [
+      "video_generation",
+      "The Series \u2014 Step 3: The Finale",
+      "10af3cb5",
+      "None"
+    ],
+    [
+      "video_generation",
+      "The Series \u2014 Step 1: The Pilot",
+      "abd378cd",
+      "None"
+    ],
+    [
+      "video_generation",
+      "The Series \u2014 Step 2: The Complication",
+      "8a6db984",
+      "None"
+    ]
+  ],
+  "city_notice_note": "WRONG as written: the free pre-read returned {} at ~15:00Z; 24/24 samples 15:02-15:07Z name music+video. See NOTICE-WATCH.md and notice-samples-2026-09-14.json."
+}
