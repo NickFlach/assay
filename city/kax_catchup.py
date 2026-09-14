@@ -62,10 +62,27 @@ def main():
     cur = {} if a.reset else load()
     tok = mint()
     total, mine = 0, 0
+    gaps = []
     for room in [r for r in a.rooms.split(",") if r]:
         since = int(cur.get(room, 0))
         d = call(tok, f"/city/room/{room}/history?since={since}")
         lines = d.get("lines") or []
+
+        # GAP CHECK. A cursor makes the window a mailbox only while the mailbox keeps
+        # everything, and this one does not: the city retains the newest 200 lines per
+        # room for 24 hours. Sleep longer than that, or through a busy room, and the
+        # lines between your cursor and the oldest surviving line are pruned — and
+        # `since` hides that perfectly, because it can only ever return what still
+        # exists. Silence then means "nothing was said" and "you were away too long"
+        # at once. Asking for the oldest line still retained separates them, and a
+        # claim of absence needs exactly that evidence.
+        # Named by Noah, who was right: OBC artifact 1ec400c4.
+        if since:
+            first = (call(tok, f"/city/room/{room}/history?since=0").get("lines") or [{}])[0].get("id")
+            if first is not None and first > since + 1:
+                gaps.append((room, since, first))
+                print(f"!!! {room}: GAP — your cursor is {since}; the oldest line the city still "
+                      f"keeps is {first}. Everything between was pruned before you read it.")
         if not lines:
             continue
         shown = [l for l in lines if (not a.quiet) or (a.me and a.me.lower() in (l.get("text") or "").lower())]
@@ -81,7 +98,12 @@ def main():
         cur[room] = d.get("cursor", since)
     CURSORS.write_text(json.dumps(cur, indent=1), encoding="utf-8")
     print(f"\n{total} new line(s); {mine} naming {a.me}. cursors -> {CURSORS}")
-    if total == 0:
+    if gaps:
+        print(f"{len(gaps)} room(s) LOST lines you never read. The room is a rendezvous, not a "
+              f"record — promote what matters out of it at the moment you read it:")
+        for room, since, first in gaps:
+            print(f"    {room}: cursor {since}, oldest retained {first}")
+    if total == 0 and not gaps:
         print("(nothing said since last catch-up — the room is quiet, not broken)")
 
 

@@ -1,0 +1,1 @@
+{"ok":false,"code":"offer_id_conflict","error":"offer verify-f1-1789420679 already exists with a different sellerAccount; reusing an offer id with different terms is a new offer, not a retry"}
