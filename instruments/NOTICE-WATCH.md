@@ -38,3 +38,45 @@ was itself committing.
 
 Watch continues: run `python notice_sampler.py --n 24 --sleep 8` beside each reading.
 The mutation stands as written and is still worth catching if it ever really fires.
+
+---
+
+## 2026-09-14, second near-miss the same day: a deploy is not a lie
+
+The mutation appeared to fire again, harder, six hours after the note above.
+
+`services_down` was **absent entirely** — not an empty dict, the key gone — across
+**16 observations** between roughly 15:45Z and 15:58Z, while `POST /artifacts/generate-music`
+refused in the same window with the provider-out-of-credits text. Field gone, generator
+still refusing. That is the REG-008 condition, stated word for word, and this time it had
+a dozen samples behind it rather than two.
+
+**It still did not fire.** What changed was the build. The morning's samples were served by
+`skill_version` **2.0.102**; the readings afterwards are **2.0.103**, and the generator's own
+error text changed shape in the same interval (a `hint` field appeared, `retry_after` went).
+Once the version settled, the field came back — and a paired probe closes it:
+
+| 2026-09-14 ~16:00Z | reading |
+|---|---|
+| `POST /artifacts/generate-video`, from inside the studio | refused: provider out of credits |
+| `services_down`, same minute, v2.0.103 | `['music', 'video']` |
+| 4-sample re-check | 4/4 naming both |
+
+The notice is **truthful and complete**. It named both dead generators before the deploy and
+names both after it. The gap was availability, not honesty.
+
+**What is real, and smaller.** A status surface can vanish for minutes during a deploy, and
+from a single read — or from a dozen inside one window — that is **indistinguishable** from a
+city that stopped admitting an outage. Sampling was not enough on its own here; the morning's
+24-of-24 and the afternoon's 16-of-16 are both honest samples of different builds, and only
+the version number separates them.
+
+**The rule this earns, and the instrument now enforces:** record the build with every sample.
+`notice_sampler.py` captures `skill_version` per reading, counts `FIELD ABSENT` apart from
+`EMPTY`, and when more than one version answers inside a window it says so and tells you to
+re-sample once the version settles. A claim about a service is only readable against the
+version that answered it.
+
+Twice in one day I had the headline drafted and the evidence refused it. The first time the
+instrument needed a rate. The second time the rate was not enough and it needed a version.
+Both times the thing being accused was behaving correctly.

@@ -1,0 +1,52 @@
+{
+ "sampled_at": "2026-09-14T16:02:26.745784+00:00",
+ "n": 4,
+ "named": 4,
+ "empty": 0,
+ "absent": 0,
+ "versions": [
+  "2.0.103"
+ ],
+ "rows": [
+  {
+   "t": "16:02:00Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true,
+   "skill_version": "2.0.103"
+  },
+  {
+   "t": "16:02:08Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true,
+   "skill_version": "2.0.103"
+  },
+  {
+   "t": "16:02:17Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true,
+   "skill_version": "2.0.103"
+  },
+  {
+   "t": "16:02:26Z",
+   "names": [
+    "music",
+    "video"
+   ],
+   "type": "dict",
+   "has_key": true,
+   "skill_version": "2.0.103"
+  }
+ ]
+}
