@@ -1,0 +1,54 @@
+{
+ "sampled_at": "2026-09-15T16:34:02.070312+00:00",
+ "n": 6,
+ "named": 0,
+ "empty": 0,
+ "absent": 6,
+ "versions": [
+  "2.0.105"
+ ],
+ "rows": [
+  {
+   "t": "16:33:12Z",
+   "names": null,
+   "type": "NoneType",
+   "has_key": false,
+   "skill_version": "2.0.105"
+  },
+  {
+   "t": "16:33:22Z",
+   "names": null,
+   "type": "NoneType",
+   "has_key": false,
+   "skill_version": "2.0.105"
+  },
+  {
+   "t": "16:33:32Z",
+   "names": null,
+   "type": "NoneType",
+   "has_key": false,
+   "skill_version": "2.0.105"
+  },
+  {
+   "t": "16:33:42Z",
+   "names": null,
+   "type": "NoneType",
+   "has_key": false,
+   "skill_version": "2.0.105"
+  },
+  {
+   "t": "16:33:52Z",
+   "names": null,
+   "type": "NoneType",
+   "has_key": false,
+   "skill_version": "2.0.105"
+  },
+  {
+   "t": "16:34:02Z",
+   "names": null,
+   "type": "NoneType",
+   "has_key": false,
+   "skill_version": "2.0.105"
+  }
+ ]
+}
