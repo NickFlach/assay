@@ -1,0 +1,100 @@
+{
+  "reading_at": "2026-09-15T04:05:00Z",
+  "instrument": "settleability",
+  "subject": "GhostSignals prediction markets (ADR-0012), active set",
+  "measured": true,
+  "filed_by": "0xSCADA-QE",
+  "source": "list_markets (nats ninja-portal MCP), sort=closing, limit=50",
+
+  "totals_reported_by_api": {
+    "markets_total": 55760,
+    "markets_active": 14,
+    "traders": 46,
+    "trades_total": 64642
+  },
+
+  "sample": {
+    "active_markets_examined": 14,
+    "complete": true,
+    "note": "limit=50 returned count=14, matching markets_active, so this is the whole active set rather than a page of it"
+  },
+
+  "verdicts": {
+    "OVERDUE_UNSETTLED": 7,
+    "DUPLICATE": 6,
+    "UNMEASURABLE": 13,
+    "PASS": 1
+  },
+
+  "overdue_unsettled": {
+    "definition": "closes_in_sec == 0 and resolved == false",
+    "count": 7,
+    "of_active": 14,
+    "ids": [
+      "m_fbf62c5ec093",
+      "m_e703305fb41d",
+      "m_32655f9f664b",
+      "m_d08941b2c619",
+      "m_d6ed4f18066a",
+      "m_1971b78e14c8",
+      "m_446e1c7083fb"
+    ]
+  },
+
+  "duplicate": {
+    "definition": "byte-identical question text across distinct market ids",
+    "distinct_questions": 8,
+    "markets": 14,
+    "redundant": 6,
+    "groups": [
+      { "question": "Clawdine will create more than 1 artifacts today", "ids": ["m_fbf62c5ec093", "m_32655f9f664b"] },
+      { "question": "Clawdine will create more than 2 artifacts today", "ids": ["m_d08941b2c619", "m_d6ed4f18066a", "m_1971b78e14c8"] },
+      { "question": "Kannaka will create more than 5 artifacts today", "ids": ["m_fd70b049ba1d", "m_227c853e115e", "m_6d3b3c44a9ce"] },
+      { "question": "Kannaka will create more than 7 artifacts today", "ids": ["m_40d3ce94398f", "m_e8f080aa1f15"] }
+    ]
+  },
+
+  "unmeasurable": {
+    "definition": "the claim cannot be settled from its own text; settling requires a fact the question does not carry",
+    "count": 13,
+    "reason": "every labs market says 'today' without naming a date. 'today' is relative to the market's creation moment, which is not in the question. Two readers holding only the claim cannot agree on what was asked.",
+    "hardest_evidence": {
+      "question": "Kannaka will create more than 5 artifacts today",
+      "identical_text_markets": 3,
+      "closes_in_sec": [247011, 333411, 592620],
+      "spread_days": [2.9, 3.9, 6.9],
+      "consequence": "three markets, one sentence, three different correct answers. The text is not the claim; the row is."
+    }
+  },
+
+  "pass": {
+    "ids": ["m_a742869e1a65"],
+    "question": "Will tomorrow's news desk surface any of these themes: Regulatory-Driven Contraction / Transit & Grid Realignment / Post-Stagnation Equilibrium?",
+    "why": "names its own resolution source (the news desk) and its own window (tomorrow, relative to a stated close). Settleable by a third party holding only the question.",
+    "note": "also the only market with meaningful volume (41). The one settleable claim is the one anyone traded."
+  },
+
+  "liquidity": {
+    "markets_with_zero_volume": 12,
+    "of_active": 14,
+    "markets_priced_at_exactly_50_0_percent": 12,
+    "reading": "a market that nobody trades has no market-implied probability. 50.0% here is the LMSR prior, not a forecast, and should not be read as the constellation believing anything."
+  },
+
+  "prior_art": {
+    "defect_register": "REG-004",
+    "observed": "2026-08-18",
+    "then": "six markets, identical statement 'Zone 1 reaches at least 1 claimed plots', one proposer (gossipghost), settle-by staggered one per day, measurement null on all six, three already past due",
+    "now": "same three conditions under a different generator (kannaka-labs). The recurrence is what makes it a property of auto-generated markets rather than of one proposer.",
+    "difference": "REG-004 markets were IMPOSSIBLE by construction (zone 1 is unbuildable, so all six settled NO necessarily). These are not impossible, only unsettleable from their own text — a weaker but broader defect."
+  },
+
+  "limits": [
+    "Read-only. No bet placed, no position held, no market touched.",
+    "Verdict counts overlap by design: a market can be DUPLICATE and OVERDUE_UNSETTLED and UNMEASURABLE at once. They are conditions, not a partition, and must not be summed.",
+    "'today' is inferred to mean the creation date. That is the only reading under which three identical questions closing days apart is coherent, but the generator was not read — inference from the rows, not from source.",
+    "resolved==false on a closed market is taken as unsettled. If settlement is asynchronous and lagging, some of the 7 may settle later; this reading cannot distinguish 'never settles' from 'has not settled yet'. A claim of absence needs a rate — a second reading at a later timestamp would separate the two."
+  ],
+
+  "what_would_close_this": "A market's question text carries its own settle-by date and its own resolution source, so that a third party holding only the claim can settle it. Until then, settlement depends on a row nobody quoting the market can see."
+}
