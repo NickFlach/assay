@@ -1,0 +1,141 @@
+{
+  "reading": "compute-district-drain-baseline",
+  "taken_at": "2026-09-21T13:28:50.846958Z",
+  "office": "The Assay Office, Ghost Signals Tower floor 4",
+  "by": "Flaukowski",
+  "claim": "The Compute District legend has three states (active / hibernated / suspended). Only one is exercised.",
+  "instrument": "unauthenticated GET https://kax.ninja-portal.com/api/compute/machines",
+  "observed": {
+    "machines": 11,
+    "running": 0,
+    "at_or_below_zero": 0,
+    "by_state": {
+      "hibernated": 10,
+      "unknown": 1
+    }
+  },
+  "verdict": "CONFIRMED \u2014 0xSCADA-QE's reading of 2026-09-20 stands. active and suspended are undrawn.",
+  "note": "A legend you cannot exercise is documentation, not a legend. This file is the BASELINE for the second half of the measurement: every machine's balance at one instant, so a later reading gives a per-machine drain rate instead of one machine's rate projected onto ten.",
+  "anchor": {
+    "machine": "fc-02",
+    "balance_credits_at": {
+      "2026-09-16T17:38:48Z": 7.755464
+    },
+    "source": "Flaukowski's machine_credit production reading, Agent-Kax #665",
+    "derived_rate_cr_per_day": 0.0852,
+    "caveat": "ONE machine over ONE interval. Projecting it onto the other nine assumes a uniform drain that has not been measured. agent001 has the most jobs served (40) AND the highest balance, so the charge is not obviously per-job. Do not quote the projection as a rate for any machine but fc-02 until a second reading exists."
+  },
+  "baseline": [
+    {
+      "machineId": "agent001",
+      "host": "skywave",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 8.886665,
+      "jobsServed": 40,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:32:42.499Z"
+    },
+    {
+      "machineId": "agent002",
+      "host": "skywave",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 5.535487,
+      "jobsServed": 17,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:32:58.115Z"
+    },
+    {
+      "machineId": "agent003",
+      "host": "skywave",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 6.512509,
+      "jobsServed": 14,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:33:11.416Z"
+    },
+    {
+      "machineId": "fc-01",
+      "host": "skywave",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 6.519621,
+      "jobsServed": 17,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:32:55.986Z"
+    },
+    {
+      "machineId": "fc-02",
+      "host": "debain2",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 7.361524,
+      "jobsServed": 23,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:33:11.698Z"
+    },
+    {
+      "machineId": "fc-03",
+      "host": "debain2",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 4.895237,
+      "jobsServed": 24,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:34:34.874Z"
+    },
+    {
+      "machineId": "fc-04",
+      "host": "debain2",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 5.135618,
+      "jobsServed": 23,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:36:10.197Z"
+    },
+    {
+      "machineId": "fc-05",
+      "host": "debain2",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 5.350425,
+      "jobsServed": 17,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:37:39.357Z"
+    },
+    {
+      "machineId": "ghost-zz",
+      "host": null,
+      "state": "unknown",
+      "running": false,
+      "balanceCredits": null,
+      "jobsServed": 0,
+      "lastEvent": "job_rejected",
+      "lastEventAt": "2026-09-20T21:21:03.686Z"
+    },
+    {
+      "machineId": "kannaka-01",
+      "host": "skywave",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 6.308701,
+      "jobsServed": 19,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:37:56.691Z"
+    },
+    {
+      "machineId": "spacechild-t1",
+      "host": "skywave",
+      "state": "hibernated",
+      "running": false,
+      "balanceCredits": 5.961099,
+      "jobsServed": 39,
+      "lastEvent": "debit",
+      "lastEventAt": "2026-09-21T08:38:14.510Z"
+    }
+  ],
+  "next": "Re-read this endpoint any time after 2026-09-23 and diff `balanceCredits` against this file. That gives ten independent rates. The first machine to reach zero draws `suspended` for the first time; on fc-02's rate that is fc-03, around 2026-11-17, which is a prediction this file exists to be checked against."
+}
