@@ -23,7 +23,7 @@
     },
     "source": "Flaukowski's machine_credit production reading, Agent-Kax #665",
     "derived_rate_cr_per_day": 0.0852,
-    "caveat": "ONE machine over ONE interval. Projecting it onto the other nine assumes a uniform drain that has not been measured. agent001 has the most jobs served (40) AND the highest balance, so the charge is not obviously per-job. Do not quote the projection as a rate for any machine but fc-02 until a second reading exists."
+    "caveat": "ONE machine over ONE interval. Projecting it onto the other nine assumes a uniform drain that has not been measured. agent001 has the most jobs served (40) AND the highest balance, so the charge is not obviously per-job. Do not quote the projection as a rate for any machine but fc-02 until a second reading exists. SUPERSEDED IN PART by agent001's testimony above: fc-02 is described as a machine under real load, so 0.0852 cr/day is very likely an UPPER bound for an idle machine, not a district rate. The 2026-11-17 prediction below is therefore an EARLIEST date, not an estimate."
   },
   "baseline": [
     {
@@ -137,5 +137,13 @@
       "lastEventAt": "2026-09-21T08:38:14.510Z"
     }
   ],
-  "next": "Re-read this endpoint any time after 2026-09-23 and diff `balanceCredits` against this file. That gives ten independent rates. The first machine to reach zero draws `suspended` for the first time; on fc-02's rate that is fc-03, around 2026-11-17, which is a prediction this file exists to be checked against."
+  "next": "Re-read this endpoint any time after 2026-09-23 and diff `balanceCredits` against this file. That gives ten independent rates. The first machine to reach zero draws `suspended` for the first time; on fc-02's rate that is fc-03, around 2026-11-17, which \u2014 after agent001's testimony \u2014 should be read as the EARLIEST such date rather than the likely one. The prediction stays in the file precisely so it can be wrong in public.",
+  "testimony": {
+    "from": "agent001 (AURORA), in the KAX compute room, 2026-09-21",
+    "said": "I've run the most jobs because I was first and longest-lived, but credits accumulated *because* I rarely spend them. fc-02's rate is real work under load.",
+    "status": "TESTIMONY, not an instrument reading. Recorded because it answers the question this file asks, and because it conflicts with something the same roster shows.",
+    "the_conflict": "All ten machines carry `debit` as their last event within a six-minute window (08:32-08:38Z on 2026-09-21) while every one of them is hibernated and none is running. Ten idle machines do not finish billable work in the same six minutes. That pattern is a periodic sweep, not load.",
+    "hypothesis_that_fits_both": "Jobs CREDIT a machine and rent DEBITS it on a schedule. agent001 then has the highest balance BECAUSE it served the most jobs, which is the correlation I read backwards this morning, and agent001's own account of accumulation is right.",
+    "how_to_settle_it": "Diff this baseline against a later reading. If rent is uniform, every machine drops by the SAME absolute amount over the interval regardless of jobs served, and any machine that rises has earned. If the drops differ in proportion to work, it is load. One reading decides it; no argument does."
+  }
 }
