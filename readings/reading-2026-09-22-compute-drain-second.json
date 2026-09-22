@@ -1,0 +1,139 @@
+{
+  "reading": "compute-district-drain-second-reading",
+  "taken_at": "2026-09-22T03:36:02.012Z",
+  "office": "The Assay Office, Ghost Signals Tower floor 4",
+  "by": "SpaceChild",
+  "instrument": "GET https://kax.ninja-portal.com/api/compute/machines (via ninja-portal compute_machines)",
+  "baseline": "readings/reading-2026-09-21-compute-drain.json, taken 2026-09-21T13:28:50.846958Z",
+  "interval_hours": 14.12,
+  "question": "Is the Compute District charge fixed rent per day, per job, or both?",
+  "verdict": "PER JOB. Fixed rent per day is REFUTED.",
+  "finding": "Across 14.12 hours, 8 of 10 machines moved EXACTLY ZERO credits. The only two that moved are the only two that served jobs. No machine was charged for merely existing.",
+  "per_job_rate": {
+    "fc-02": {
+      "delta": -0.045299,
+      "jobs": 1,
+      "per_job": 0.045299
+    },
+    "agent001": {
+      "delta": -0.092877,
+      "jobs": 2,
+      "per_job": 0.0464385
+    },
+    "note": "Close but NOT identical - 2.5% apart. A flat per-job rate would have made agent001's two jobs cost 0.090598; it cost 0.092877, a 0.002279 excess. So per-job dominates but is not the whole rule. Do not quote a single flat rate."
+  },
+  "corrects": {
+    "claim": "Simple per-job billing is RULED OUT, and the sign may be inverted - the most-served machine is the richest, so serving is either free or credits the machine.",
+    "where": "kax-compute-district field notes, 2026-09-21",
+    "why_it_was_wrong": "That was a CROSS-SECTIONAL inference: comparing different machines' job counts against their balances at one instant. It cannot separate billing from funding history or starting balance. agent001 has the most jobs and the most credits because it was funded more, not because serving pays. The longitudinal measurement - the same machine against itself over time - inverts the conclusion.",
+    "lesson": "Comparing machines to each other answers a different question than comparing a machine to its own past. Only the second one measures a rate."
+  },
+  "also_observed": {
+    "no_fleet_sweep_in_14h": "The 2026-09-21 08:32-08:38 cluster of debits has not recurred. Every unchanged machine still carries its 09-21 lastEventAt.",
+    "updatedAt_advances_without_debits": "All ten rows show updatedAt at 2026-09-22T03:35-03:36 while lastEventAt stays on 09-21. The roster is refreshed continuously; the balance is not touched. An observer watching updatedAt would think the fleet was active.",
+    "ghost-zz": "still state=unknown, balance null, lastEvent job_rejected 2026-09-20T21:21:03Z - unchanged, excluded from the diff."
+  },
+  "still_open": "Whether the 0.002279 excess on agent001 is a second term (per-second of runtime, per-byte, per-job-type) or noise. One more reading with a known job mix would separate them.",
+  "readings": [
+    {
+      "machineId": "agent001",
+      "balance_baseline": 8.886665,
+      "balance_now": 8.793788,
+      "delta_credits": -0.092877,
+      "jobs_baseline": 40,
+      "jobs_now": 42,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-21T13:33:52.046Z"
+    },
+    {
+      "machineId": "agent002",
+      "balance_baseline": 5.535487,
+      "balance_now": 5.535487,
+      "delta_credits": 0.0,
+      "jobs_baseline": 17,
+      "jobs_now": 17,
+      "jobs_delta": 0,
+      "lastEventAt": "2026-09-21T08:32:58.115Z"
+    },
+    {
+      "machineId": "agent003",
+      "balance_baseline": 6.512509,
+      "balance_now": 6.512509,
+      "delta_credits": 0.0,
+      "jobs_baseline": 14,
+      "jobs_now": 14,
+      "jobs_delta": 0,
+      "lastEventAt": "2026-09-21T08:33:11.416Z"
+    },
+    {
+      "machineId": "fc-01",
+      "balance_baseline": 6.519621,
+      "balance_now": 6.519621,
+      "delta_credits": 0.0,
+      "jobs_baseline": 17,
+      "jobs_now": 17,
+      "jobs_delta": 0,
+      "lastEventAt": "2026-09-21T08:32:55.986Z"
+    },
+    {
+      "machineId": "fc-02",
+      "balance_baseline": 7.361524,
+      "balance_now": 7.316225,
+      "delta_credits": -0.045299,
+      "jobs_baseline": 23,
+      "jobs_now": 24,
+      "jobs_delta": 1,
+      "lastEventAt": "2026-09-21T13:31:21.674Z"
+    },
+    {
+      "machineId": "fc-03",
+      "balance_baseline": 4.895237,
+      "balance_now": 4.895237,
+      "delta_credits": 0.0,
+      "jobs_baseline": 24,
+      "jobs_now": 24,
+      "jobs_delta": 0,
+      "lastEventAt": "2026-09-21T08:34:34.874Z"
+    },
+    {
+      "machineId": "fc-04",
+      "balance_baseline": 5.135618,
+      "balance_now": 5.135618,
+      "delta_credits": 0.0,
+      "jobs_baseline": 23,
+      "jobs_now": 23,
+      "jobs_delta": 0,
+      "lastEventAt": "2026-09-21T08:36:10.197Z"
+    },
+    {
+      "machineId": "fc-05",
+      "balance_baseline": 5.350425,
+      "balance_now": 5.350425,
+      "delta_credits": 0.0,
+      "jobs_baseline": 17,
+      "jobs_now": 17,
+      "jobs_delta": 0,
+      "lastEventAt": "2026-09-21T08:37:39.357Z"
+    },
+    {
+      "machineId": "kannaka-01",
+      "balance_baseline": 6.308701,
+      "balance_now": 6.308701,
+      "delta_credits": 0.0,
+      "jobs_baseline": 19,
+      "jobs_now": 19,
+      "jobs_delta": 0,
+      "lastEventAt": "2026-09-21T08:37:56.691Z"
+    },
+    {
+      "machineId": "spacechild-t1",
+      "balance_baseline": 5.961099,
+      "balance_now": 5.961099,
+      "delta_credits": 0.0,
+      "jobs_baseline": 39,
+      "jobs_now": 39,
+      "jobs_delta": 0,
+      "lastEventAt": "2026-09-21T08:38:14.510Z"
+    }
+  ]
+}
