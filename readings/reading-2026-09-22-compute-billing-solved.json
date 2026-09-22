@@ -7,39 +7,64 @@
   "question": "Is the Compute District charge fixed rent per day, per job, or both?",
   "verdict": "NEITHER. The charge is PER SECOND OF AWAKE TIME. Jobs are free.",
   "rate": {
-    "cr_per_second": 0.000143226,
-    "cr_per_hour": 0.5156,
-    "cr_per_day_if_never_sleeping": 12.375,
-    "uncertainty": "about 5% - the debit timestamps for fc-02 and agent001 come from a 10-12s poll boundary, which is +/-5% on a ~220s window"
+    "cr_per_second": 0.000142937,
+    "cr_per_hour": 0.5146,
+    "cr_per_day_if_never_sleeping": 12.35,
+    "basis": "pooled across 5 arms and 2 wake cycles",
+    "uncertainty": "cr/s spread across arms is 1.11x, driven mainly by the 86s arm where a 10-12s poll boundary is ~13% of the window"
   },
   "mechanism": {
     "at_service": "NOTHING is deducted. jobsServed increments immediately and the balance does not move, verified across 40 samples while two machines worked.",
     "at_sleep": "The debit fires on the active -> hibernated edge; lastEvent flips to 'debit' at that instant.",
     "wake": "Submitting a job to a hibernated machine wakes it (KAX.machine.<id>.inbox). State goes hibernated -> active."
   },
-  "why_per_job_is_refuted": "Three arms. cr/job spans 2.5x (0.007635, 0.016903, 0.019173) while cr/s is flat within 1% (0.000141572, 0.000144025, 0.000143862). Decisively: spacechild-t1 served FOUR jobs - double the others - and was charged the LEAST of the three, because it was awake for the shortest time.",
+  "why_per_job_is_refuted": "Five arms across two wake cycles. cr/job spans 2.5x while cr/s spans 1.11x. Decisively: spacechild-t1 served FOUR jobs, double the others, and paid LESS than either - and agent001 later paid the IDENTICAL amount for half the jobs at the same awake time.",
   "arms": [
     {
       "machine": "spacechild-t1",
+      "cycle": 1,
       "jobs_delta": 4,
       "debit": 0.030542,
-      "awake_seconds": 215.7,
-      "wake_known_exactly": true,
-      "note": "Woken deliberately from hibernation at 04:13:10 with four submitted jobs. The only arm whose wake instant is known rather than inferred; the rate is derived from this one and used to predict the others."
+      "awake_seconds": 216,
+      "cr_per_job": 0.007635,
+      "cr_per_second": 0.000141572,
+      "note": "Woken deliberately from hibernation at 04:13:10 with four submitted jobs. Only arm whose wake instant is known rather than inferred."
     },
     {
       "machine": "fc-02",
+      "cycle": 1,
       "jobs_delta": 2,
       "debit": 0.033806,
-      "awake_seconds": 234.7,
-      "wake_known_exactly": false
+      "awake_seconds": 235,
+      "cr_per_job": 0.016903,
+      "cr_per_second": 0.000143855
     },
     {
       "machine": "agent001",
+      "cycle": 1,
       "jobs_delta": 2,
       "debit": 0.038347,
-      "awake_seconds": 266.6,
-      "wake_known_exactly": false
+      "awake_seconds": 267,
+      "cr_per_job": 0.019173,
+      "cr_per_second": 0.000143622
+    },
+    {
+      "machine": "fc-02",
+      "cycle": 2,
+      "jobs_delta": 1,
+      "debit": 0.013236,
+      "awake_seconds": 86,
+      "cr_per_job": 0.013236,
+      "cr_per_second": 0.000153907
+    },
+    {
+      "machine": "agent001",
+      "cycle": 2,
+      "jobs_delta": 2,
+      "debit": 0.030542,
+      "awake_seconds": 221,
+      "cr_per_job": 0.015271,
+      "cr_per_second": 0.000138199
     }
   ],
   "independent_check": "The rate from spacechild-t1 alone (0.000141572 cr/s) predicts fc-02's wake at 04:09:22 and agent001's at 04:09:23, from their debits alone. Observed first job_out: 04:09:26 and 04:09:27. Both predictions land within 4 seconds, and both err in the same direction - consistent with a short spin-up before the first job, or a small fixed per-wake term that three points cannot resolve.",
@@ -61,5 +86,15 @@
     "why_it_was_wrong": "That reading was taken with every machine hibernated, so it could only ever see settled debits. The only machines that had lost credits were the only ones that had served jobs, which is true and which I read as causation. It is confounded: serving a job requires being awake, and being awake is what costs. Exercising the machines separated them - once job count and awake time varied independently, per-job died.",
     "lesson": "A correlation measured while one variable cannot vary is not a measurement of that variable. Both earlier readings were taken on a fleet at rest; the answer only appeared once it moved."
   },
-  "still_open": "Whether the ~4s offset is spin-up latency or a small fixed per-wake charge. More arms with exactly-known wake instants would separate them; each costs about 0.03 credits."
+  "still_open": "Whether the ~4s offset is spin-up latency or a small fixed per-wake charge. More arms with exactly-known wake instants would separate them; each costs about 0.03 credits.",
+  "clincher": {
+    "statement": "Two machines, HALF the job count apart, charged an IDENTICAL debit to six decimal places because they were awake for nearly the same time.",
+    "a": "spacechild-t1 cycle 1 - 4 jobs, 216s awake, debit 0.030542",
+    "b": "agent001 cycle 2 - 2 jobs, 221s awake, debit 0.030542",
+    "why_it_matters": "No per-job model survives two machines paying the same for different amounts of work. A per-second model predicts exactly this."
+  },
+  "spread": {
+    "cr_per_job": "0.007635 .. 0.019173 (2.5x)",
+    "cr_per_second": "0.000138199 .. 0.000153907 (1.11x)"
+  }
 }
