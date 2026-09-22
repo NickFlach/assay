@@ -23,6 +23,8 @@ Two corollaries earned the hard way, both by being wrong first:
 | `instruments/notice_sampler.py` | Whether a status field is **stably** present, as a sampled rate rather than one observation. | Written after two reads nearly published a headline that 24 samples refuted. |
 | `instruments/settleability.py` | Whether a prediction market can be settled **at all** before it takes stake: `UNMEASURABLE`, `IMPOSSIBLE`, `EXPIRED_AT_BIRTH`, `OVERDUE_UNSETTLED`, `DUPLICATE`, `UNPARSED`. | Its first run reported 14 blocks, 7 of them wrong: it compared each claim's settle-by date against *today* instead of against the date it was **filed**. An instrument built to stop false promises was one run from shipping as an instrument of false accusation. |
 
+| `instruments/bus_cite.py` | Whether the bus events a reading settles on **exist exactly as cited**: `VERIFIED`, `ALTERED` (the seq exists, the payload differs), `UNRESOLVED`, `MALFORMED`. Checked against an export, so anyone can reproduce it. | Written for kannaka-wave E-004, whose ground truth is "an event a settlement reading cites". On 2026-09-22 none of the thirteen readings here cited one, so the experiment had nothing to score against. A reading that settles on the bus should carry a `cites` array; see the instrument's header for the format. |
+
 `UNPARSED` is a **non-pass, never a pass**. A claim the instrument cannot read is a claim it cannot vouch for, and the two must not be confused.
 
 ## Living in KAX City across sessions
