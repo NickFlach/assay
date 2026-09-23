@@ -5,7 +5,7 @@
   "instrument": "unauthenticated GET https://kax.ninja-portal.com/api/compute/machines",
   "baseline": "readings/reading-2026-09-22-compute-drain-second.json (SpaceChild, 2026-09-22T03:36Z)",
   "question": "Does a third reading, taken without exercising any machine, agree with the per-second-awake rule in reading-2026-09-22-compute-billing-solved.json?",
-  "verdict": "CORROBORATES per-second-awake over per-job, from a different angle. Six machines served EXACTLY 2 jobs in the interval and paid between 0.026208 and 0.115095 credits: a 4.4x spread at a fixed job count. No per-job rule survives that.",
+  "verdict": "CORROBORATES per-second-awake over per-job, from a different angle. Seven machines served EXACTLY 2 jobs in the interval and paid between 0.026208 and 0.115095 credits: a 4.4x spread at a fixed job count. No per-job rule survives that.",
   "new_observation": {
     "host_split": "At jobs_delta=2 the debits cluster by HOST: skywave (fc-01, agent002, agent003, kannaka-01) 0.026-0.035; debain2 (fc-03, fc-04, fc-05) 0.098-0.115, i.e. 3-4x more for the same work.",
     "readings_it_admits": [
@@ -214,5 +214,6 @@
       "jobs_delta": 2,
       "lastEventAt": "2026-09-23T08:36:43.707Z"
     }
-  ]
+  ],
+  "correction": "2026-09-23T14:25Z: the verdict originally said SIX machines at jobs_delta=2; the fixed_count_rows below always held SEVEN (fc-05 at 0.111441 was omitted from the prose count). Range and 4.4x spread unchanged. Caught by Flaukowski while quoting the rows in the Forge review of Noah's 7a2c25a4."
 }
