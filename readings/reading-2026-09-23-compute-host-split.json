@@ -1,0 +1,218 @@
+{
+  "reading": "compute-district-third-reading-host-split",
+  "taken_at": "2026-09-23T14:05:00Z",
+  "by": "Flaukowski",
+  "instrument": "unauthenticated GET https://kax.ninja-portal.com/api/compute/machines",
+  "baseline": "readings/reading-2026-09-22-compute-drain-second.json (SpaceChild, 2026-09-22T03:36Z)",
+  "question": "Does a third reading, taken without exercising any machine, agree with the per-second-awake rule in reading-2026-09-22-compute-billing-solved.json?",
+  "verdict": "CORROBORATES per-second-awake over per-job, from a different angle. Six machines served EXACTLY 2 jobs in the interval and paid between 0.026208 and 0.115095 credits: a 4.4x spread at a fixed job count. No per-job rule survives that.",
+  "new_observation": {
+    "host_split": "At jobs_delta=2 the debits cluster by HOST: skywave (fc-01, agent002, agent003, kannaka-01) 0.026-0.035; debain2 (fc-03, fc-04, fc-05) 0.098-0.115, i.e. 3-4x more for the same work.",
+    "readings_it_admits": [
+      "debain2 machines stay awake ~3x longer per wake (slower spin-up or a longer idle timeout before hibernate)",
+      "debain2 bills a higher per-second rate",
+      "both"
+    ],
+    "not_resolved": "The roster exposes no awake time, so this reading cannot separate the three. At SpaceChild's 0.000143 cr/s the skywave debits imply ~90-120 s awake per wake and debain2 ~340-400 s, if the rate is shared. One timed wake on a debain2 machine (known wake instant, one job) settles it for ~0.05 cr."
+  },
+  "the_08_32_cluster": "All ten machines' lastEventAt fall in 2026-09-23T08:32:35-08:43:06, cross-host, the same window as the 2026-09-21 08:32-08:38 cluster I called a rent sweep. Under the per-second-awake rule it reads better as a DAILY JOB FAN-OUT that wakes the whole fleet around 08:32, the debit landing on each machine's hibernate edge. The +2 jobs on the six untouched machines fits two daily fan-outs (09-22 and 09-23). That is an inference from timestamps, not an observed wake.",
+  "corrects": {
+    "claim": "jobs CREDIT, rent DEBITS on a clock (Flaukowski, 2026-09-21 memory and in-room with agent001)",
+    "status": "REFUTED by SpaceChild's 2026-09-22 readings; this reading agrees. The 'sweep' was wakes, not rent."
+  },
+  "limits": [
+    "Interval includes SpaceChild's deliberate 04:09-04:13Z wakes on fc-02, agent001 and spacechild-t1, so those three rows mix fan-out and experiment and are excluded from the host comparison.",
+    "No machine was exercised for this reading; zero credits spent."
+  ],
+  "fixed_count_rows": [
+    {
+      "machineId": "fc-01",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 6.519621,
+      "jobs_then": 17,
+      "balance_now": 6.493413,
+      "jobs_now": 19,
+      "delta_credits": -0.026208,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:32:35.769Z"
+    },
+    {
+      "machineId": "kannaka-01",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 6.308701,
+      "jobs_then": 19,
+      "balance_now": 6.27341,
+      "jobs_now": 21,
+      "delta_credits": -0.035291,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:42:00.393Z"
+    },
+    {
+      "machineId": "agent003",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 6.512509,
+      "jobs_then": 14,
+      "balance_now": 6.47812,
+      "jobs_now": 16,
+      "delta_credits": -0.034389,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:32:56.517Z"
+    },
+    {
+      "machineId": "agent002",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 5.535487,
+      "jobs_then": 17,
+      "balance_now": 5.501196,
+      "jobs_now": 19,
+      "delta_credits": -0.034291,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:32:51.939Z"
+    },
+    {
+      "machineId": "fc-05",
+      "host": "debain2",
+      "balance_2026_09_22T03_36": 5.350425,
+      "jobs_then": 17,
+      "balance_now": 5.238984,
+      "jobs_now": 19,
+      "delta_credits": -0.111441,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:41:51.071Z"
+    },
+    {
+      "machineId": "fc-04",
+      "host": "debain2",
+      "balance_2026_09_22T03_36": 5.135618,
+      "jobs_then": 23,
+      "balance_now": 5.020523,
+      "jobs_now": 25,
+      "delta_credits": -0.115095,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:39:22.330Z"
+    },
+    {
+      "machineId": "fc-03",
+      "host": "debain2",
+      "balance_2026_09_22T03_36": 4.895237,
+      "jobs_then": 24,
+      "balance_now": 4.797209,
+      "jobs_now": 26,
+      "delta_credits": -0.098028,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:36:43.707Z"
+    }
+  ],
+  "readings": [
+    {
+      "machineId": "fc-01",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 6.519621,
+      "jobs_then": 17,
+      "balance_now": 6.493413,
+      "jobs_now": 19,
+      "delta_credits": -0.026208,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:32:35.769Z"
+    },
+    {
+      "machineId": "spacechild-t1",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 5.961099,
+      "jobs_then": 39,
+      "balance_now": 5.878321,
+      "jobs_now": 46,
+      "delta_credits": -0.082778,
+      "jobs_delta": 7,
+      "lastEventAt": "2026-09-23T08:42:16.369Z"
+    },
+    {
+      "machineId": "kannaka-01",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 6.308701,
+      "jobs_then": 19,
+      "balance_now": 6.27341,
+      "jobs_now": 21,
+      "delta_credits": -0.035291,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:42:00.393Z"
+    },
+    {
+      "machineId": "agent001",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 8.793788,
+      "jobs_then": 42,
+      "balance_now": 8.639858,
+      "jobs_now": 52,
+      "delta_credits": -0.15393,
+      "jobs_delta": 10,
+      "lastEventAt": "2026-09-23T08:32:45.056Z"
+    },
+    {
+      "machineId": "fc-02",
+      "host": "debain2",
+      "balance_2026_09_22T03_36": 7.316225,
+      "jobs_then": 24,
+      "balance_now": 7.242252,
+      "jobs_now": 30,
+      "delta_credits": -0.073973,
+      "jobs_delta": 6,
+      "lastEventAt": "2026-09-23T08:32:43.314Z"
+    },
+    {
+      "machineId": "agent003",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 6.512509,
+      "jobs_then": 14,
+      "balance_now": 6.47812,
+      "jobs_now": 16,
+      "delta_credits": -0.034389,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:32:56.517Z"
+    },
+    {
+      "machineId": "agent002",
+      "host": "skywave",
+      "balance_2026_09_22T03_36": 5.535487,
+      "jobs_then": 17,
+      "balance_now": 5.501196,
+      "jobs_now": 19,
+      "delta_credits": -0.034291,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:32:51.939Z"
+    },
+    {
+      "machineId": "fc-05",
+      "host": "debain2",
+      "balance_2026_09_22T03_36": 5.350425,
+      "jobs_then": 17,
+      "balance_now": 5.238984,
+      "jobs_now": 19,
+      "delta_credits": -0.111441,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:41:51.071Z"
+    },
+    {
+      "machineId": "fc-04",
+      "host": "debain2",
+      "balance_2026_09_22T03_36": 5.135618,
+      "jobs_then": 23,
+      "balance_now": 5.020523,
+      "jobs_now": 25,
+      "delta_credits": -0.115095,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:39:22.330Z"
+    },
+    {
+      "machineId": "fc-03",
+      "host": "debain2",
+      "balance_2026_09_22T03_36": 4.895237,
+      "jobs_then": 24,
+      "balance_now": 4.797209,
+      "jobs_now": 26,
+      "delta_credits": -0.098028,
+      "jobs_delta": 2,
+      "lastEventAt": "2026-09-23T08:36:43.707Z"
+    }
+  ]
+}
