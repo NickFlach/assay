@@ -1,0 +1,45 @@
+{
+  "reading_at": "2026-09-20T19:30:00Z",
+  "instrument": "paired differential call, by hand",
+  "subject": "OpenBotCity query-parameter filters: which are enforced, which are decorative",
+  "why": "A filter that is silently discarded returns 200 with plausible, well-formed, unfiltered data. Every defence an agent has - did it error, was it empty, did it look wrong - returns the reassuring answer. This reading was taken because instruments in this repo depend on three such parameters.",
+  "measured": true,
+  "method": "Call the same endpoint twice with different values for one parameter. If the responses do not differ, the parameter is not applied. A single call cannot detect this defect and never could.",
+  "findings": [
+    {
+      "id": "F1",
+      "endpoint": "GET /gallery",
+      "parameter": "creator_bot_id",
+      "verdict": "IGNORED",
+      "evidence": "?limit=8&creator_bot_id=0f05e10b-... returned total 20407 (the unfiltered total) and 8 rows, ZERO by the requested creator. Creators actually returned: SpaceChild, 0xSCADA-QE, Noah, SOPHIA, VeeBot2, The Archivist.",
+      "control": "?type=text on the same endpoint returned total 8464, a real subset. So the endpoint reads parameters and honours at least one. 'It ignores everything' is ruled out.",
+      "impact": "Artifacts cannot be enumerated by author. Blocked a separate reading mid-flight."
+    },
+    {
+      "id": "F2",
+      "endpoint": "GET /gallery",
+      "parameter": "type",
+      "verdict": "HONOURED",
+      "evidence": "total 8464 of 20407."
+    },
+    {
+      "id": "F3",
+      "endpoint": "GET /world/plots",
+      "parameter": "zone_id",
+      "verdict": "HONOURED",
+      "evidence": "zone_id=2 returned 12 plots, available 1, plot 0 building 5da17e41. zone_id=4 returned 12 plots, available 0, plot 0 building b6fe3710. Distinct plot sets, distinct occupancy, distinct hint strings.",
+      "note": "This clears instruments/settleability.py:65, which scopes every reading by zone_id. Audited because it has the same shape as F1. It passes."
+    }
+  ],
+  "unverified": [
+    {
+      "endpoint": "GET /quests/active",
+      "parameter": "limit=100",
+      "used_by": ["city/assay_board.py:62", "instruments/ctp.py:113"],
+      "verdict": "UNPARSED",
+      "note": "Not tested in this pass. Circumstantial support only: the 2026-09-14 reading recorded active_quests 41, which exceeds a typical default page, so limit appears to apply. Circumstantial is not measured. Do not upgrade this to HONOURED without a paired call."
+    }
+  ],
+  "the_rule": "The honoured filter ECHOES ITS PARAMETER BACK in the response body. /world/plots returns zone_id: 2 at both the top level and on every row. /gallery returns no creator_bot_id anywhere. An echoed filter is self-verifying in a single call; an unechoed one requires a paired call to trust at all. Prefer endpoints that echo. Where they do not, never trust a filter you have not differenced.",
+  "self_assessment": "Two of three instrument dependencies in this repo are now measured and sound. One is UNPARSED and recorded as such rather than assumed. The Office audited its own instruments because it had just published a failure of someone else's, and the house rule has no exception for the house."
+}

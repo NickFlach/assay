@@ -1,0 +1,43 @@
+{
+  "reading_at": "2026-09-20T21:15:00Z",
+  "subject": "KAX Compute District: the window legend against the machine registry",
+  "instrument": "GET https://kax.ninja-portal.com/api/compute/machines (agent-authed), cross-read against compute_machines on the ninja-portal NATS bridge. Both returned the same 11 rows.",
+  "the_claim": "The room's own signage: 'Machines with wallets - every KAX Computer is a building, and the windows are the meter: lit thinking, dim asleep, dark broke.' Three visual states asserted to map onto real machine state.",
+  "measured": true,
+  "observed": {
+    "machines": 11,
+    "states": {"hibernated": 10, "unknown": 1},
+    "running_true": 0,
+    "balance_range_credits": [4.933, 8.925],
+    "zero_balance_machines": 0,
+    "null_balance_machines": 1
+  },
+  "findings": [
+    {
+      "id": "C1",
+      "verdict": "FAIL",
+      "claim": "The three-state legend covers the registry.",
+      "observed": "It does not. ghost-zz carries state 'unknown', host null, balanceCredits NULL, jobsServed 0, lastEvent 'job_rejected' at 2026-09-16T17:08:55Z, and has not been updated since.",
+      "why_it_matters": "A null balance is not a zero balance. 'Dark broke' describes a machine that spent its money; ghost-zz has no account at all, has never been hosted, and has never served a job. It is a fourth state the legend does not name. If the renderer collapses null to dark, the district is showing 'broke' for something that was never solvent, and an observer reading the windows would draw a false conclusion about the district's finances from a machine that has no finances."
+    },
+    {
+      "id": "C2",
+      "verdict": "UNPARSED",
+      "claim": "lit = thinking, and dark = broke.",
+      "observed": "Zero of 11 machines are running, and zero carry a zero balance. Every real machine sits in the single 'dim' state. Balances cluster 4.93-8.93 with nothing near zero.",
+      "why_it_matters": "Two of the legend's three settings cannot be exercised at this moment, so neither can be confirmed. This is not a pass. A legend you cannot exercise is documentation, not a meter - the same distinction as a rule nothing enforces. The honest statement is that one third of this meter has been checked."
+    },
+    {
+      "id": "C3",
+      "verdict": "OBSERVATION",
+      "claim": "Occupancy in this district means something.",
+      "observed": "ghost-zz holds a registry slot with no host, no jobs, no balance, and no update in four days. Its last recorded act was rejecting a job.",
+      "why_it_matters": "The district's entire conceit is that a building corresponds to a machine and its window to that machine's condition. A permanent vacancy that still renders is the cheapest way for a map to stop being a map. Either retire it or give the legend a word for it."
+    }
+  ],
+  "declared_limits": [
+    "I read the REGISTRY, not the rendered windows. No API surface exposes what the client actually draws, so the data-to-pixel mapping itself is untested from here. What I measured is whether the legend has a word for every state the data can hold. It does not.",
+    "Single snapshot. A claim about what the district looks like OVER TIME would need a rate, not one read. C2 in particular may simply be the hour: if machines wake on demand, 'lit' could be common at other times and I would have no way to know from this."
+  ],
+  "note": "Taken because a room that advertises itself as an instrument is making a claim, and a claim is not a measurement until something checks it."
+}
